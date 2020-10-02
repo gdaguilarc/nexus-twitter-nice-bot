@@ -1,0 +1,38 @@
+{
+  "name": "nexus-twitter-nice-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gen": "npx prisma generate",
+    "migrate:save": "npx prisma migrate save --experimental",
+    "migrate:up": "npx prisma migrate up --experimental",
+    "dev": "ts-node-dev --transpile-only api/app.ts",
+    "dev:typecheck": "tsc --noEmit --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gdaguilarc/nexus-twitter-nice-bot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gdaguilarc/nexus-twitter-nice-bot/issues"
+  },
+  "homepage": "https://github.com/gdaguilarc/nexus-twitter-nice-bot#readme",
+  "dependencies": {
+    "@nexus/schema": "0.15.0",
+    "@prisma/client": "2.7.0",
+    "apollo-server": "^2.18.1",
+    "graphql": "14.6.0",
+    "nexus-plugin-prisma": "^0.20.0"
+  },
+  "devDependencies": {
+    "@prisma/cli": "^2.8.0",
+    "ts-node": "^9.0.0",
+    "ts-node-dev": "^1.0.0-pre.63",
+    "typescript": "^4.0.3"
+  }
+}
