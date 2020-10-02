@@ -8,7 +8,7 @@
     "gen": "npx prisma generate",
     "migrate:save": "npx prisma migrate save --experimental",
     "migrate:up": "npx prisma migrate up --experimental",
-    "dev": "ts-node-dev --transpile-only api/app.ts",
+    "dev": "yarn gen && ts-node-dev --transpile-only api/app.ts",
     "dev:typecheck": "tsc --noEmit --watch"
   },
   "repository": {
