@@ -3,7 +3,8 @@
 
 
 type Query {
-  ok: Boolean!
+  getAllTweet: [Tweet]!
+  getTweet(id: Int!): Tweet
 }
 
 type Tweet {

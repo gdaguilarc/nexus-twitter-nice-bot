@@ -52,7 +52,8 @@ export interface NexusGenAllTypes extends NexusGenRootTypes {
 
 export interface NexusGenFieldTypes {
   Query: { // field return type
-    ok: boolean; // Boolean!
+    getAllTweet: Array<NexusGenRootTypes['Tweet'] | null>; // [Tweet]!
+    getTweet: NexusGenRootTypes['Tweet'] | null; // Tweet
   }
   Tweet: { // field return type
     id: number; // Int!
@@ -63,6 +64,11 @@ export interface NexusGenFieldTypes {
 }
 
 export interface NexusGenArgTypes {
+  Query: {
+    getTweet: { // args
+      id: number; // Int!
+    }
+  }
 }
 
 export interface NexusGenAbstractResolveReturnTypes {

@@ -9,3 +9,31 @@ export const Tweet = objectType({
     t.model.negative();
   },
 });
+
+export const TweetQuery = extendType({
+  type: "Query",
+  definition(t) {
+    t.field("getAllTweet", {
+      nullable: false,
+      type: "Tweet",
+      list: true,
+      async resolve(_root, _args, ctx) {
+        return await ctx.prisma.tweet.findMany();
+      },
+    });
+    t.field("getTweet", {
+      nullable: true,
+      type: "Tweet",
+      args: {
+        id: intArg({ required: true }),
+      },
+      async resolve(_root, _args, ctx) {
+        return await ctx.prisma.tweet.findOne({
+          where: {
+            id: _args.id,
+          },
+        });
+      },
+    });
+  },
+});
