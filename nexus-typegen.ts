@@ -3,15 +3,14 @@
  * Do not make changes to this file directly
  */
 
-import * as ContextModule from "./api/context"
-import * as prisma from "./node_modules/.prisma/client/index"
+import * as ContextModule from "./src/context"
 
 
 
 declare global {
   interface NexusGenCustomOutputProperties<TypeName extends string> {
+    crud: NexusPrisma<TypeName, 'crud'>
     model: NexusPrisma<TypeName, 'model'>
-    crud: any
   }
 }
 
@@ -34,9 +33,13 @@ export interface NexusGenScalars {
 }
 
 export interface NexusGenRootTypes {
-  Mutation: {};
   Query: {};
-  Tweet: prisma.Tweet;
+  Tweet: { // root type
+    id: number; // Int!
+    negative: number; // Int!
+    positive: number; // Int!
+    tweet_content: string; // String!
+  }
 }
 
 export interface NexusGenAllTypes extends NexusGenRootTypes {
@@ -48,11 +51,8 @@ export interface NexusGenAllTypes extends NexusGenRootTypes {
 }
 
 export interface NexusGenFieldTypes {
-  Mutation: { // field return type
-    addTweet: NexusGenRootTypes['Tweet']; // Tweet!
-  }
   Query: { // field return type
-    tweet: NexusGenRootTypes['Tweet'][]; // [Tweet!]!
+    ok: boolean; // Boolean!
   }
   Tweet: { // field return type
     id: number; // Int!
@@ -63,11 +63,6 @@ export interface NexusGenFieldTypes {
 }
 
 export interface NexusGenArgTypes {
-  Mutation: {
-    addTweet: { // args
-      tweet_content: string; // String!
-    }
-  }
 }
 
 export interface NexusGenAbstractResolveReturnTypes {
@@ -75,7 +70,7 @@ export interface NexusGenAbstractResolveReturnTypes {
 
 export interface NexusGenInheritedFields {}
 
-export type NexusGenObjectNames = "Mutation" | "Query" | "Tweet";
+export type NexusGenObjectNames = "Query" | "Tweet";
 
 export type NexusGenInputNames = never;
 

@@ -1,13 +1,18 @@
 {
   "compilerOptions": {
-    "target": "ES2018",
+    "target": "es2016",
     "module": "commonjs",
-    "lib": ["ESNext"],
+    "lib": ["esnext"],
     "strict": true,
     "rootDir": ".",
-    "outDir": "dist",
-    "sourceMap": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true
-  }
+    "noEmit": true,
+    "plugins": [
+      {
+        "name": "nexus/typescript-language-service"
+      }
+    ],
+    "typeRoots": ["node_modules/@types", "types"],
+    "esModuleInterop": true
+  },
+  "include": ["types.d.ts", "."]
 }
