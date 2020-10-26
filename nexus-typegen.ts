@@ -35,10 +35,10 @@ export interface NexusGenScalars {
 export interface NexusGenRootTypes {
   Query: {};
   Tweet: { // root type
-    id: number; // Int!
-    negative: number; // Int!
-    positive: number; // Int!
-    tweet_content: string; // String!
+    Content: string; // String!
+    id: string; // String!
+    Negative: number; // Int!
+    Positive: number; // Int!
   }
 }
 
@@ -52,21 +52,28 @@ export interface NexusGenAllTypes extends NexusGenRootTypes {
 
 export interface NexusGenFieldTypes {
   Query: { // field return type
+    countTweets: number | null; // Int
+    countTweetsAggresive: number | null; // Int
+    countTweetsByWord: number | null; // Int
+    countTweetsNotAggresive: number | null; // Int
     getAllTweet: Array<NexusGenRootTypes['Tweet'] | null>; // [Tweet]!
     getTweet: NexusGenRootTypes['Tweet'] | null; // Tweet
   }
   Tweet: { // field return type
-    id: number; // Int!
-    negative: number; // Int!
-    positive: number; // Int!
-    tweet_content: string; // String!
+    Content: string; // String!
+    id: string; // String!
+    Negative: number; // Int!
+    Positive: number; // Int!
   }
 }
 
 export interface NexusGenArgTypes {
   Query: {
+    countTweetsByWord: { // args
+      word: string; // String!
+    }
     getTweet: { // args
-      id: number; // Int!
+      id: string; // String!
     }
   }
 }

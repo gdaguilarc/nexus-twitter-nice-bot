@@ -16,7 +16,8 @@
     "db:remove": "docker rm Twitter_bot",
     "db:start": "docker container start Twitter_bot",
     "db:stop": "docker stop Twitter_bot",
-    "db:redeploy": "yarn db:stop && yarn db:remove && yarn db:create"
+    "db:redeploy": "yarn db:stop && yarn db:remove && yarn db:create",
+    "db:introspect": "npx prisma introspect --force"
   },
   "repository": {
     "type": "git",

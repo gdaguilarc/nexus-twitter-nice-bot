@@ -21,8 +21,8 @@ interface PrismaModels {
 interface NexusPrismaInputs {
   Query: {
     tweets: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'tweet_content' | 'positive' | 'negative'
-      ordering: 'id' | 'tweet_content' | 'positive' | 'negative'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'Content' | 'Negative' | 'Positive'
+      ordering: 'id' | 'Content' | 'Negative' | 'Positive'
     }
   },
   Tweet: {
@@ -45,10 +45,10 @@ interface NexusPrismaOutputs {
     upsertOneTweet: 'Tweet'
   },
   Tweet: {
-    id: 'Int'
-    tweet_content: 'String'
-    positive: 'Int'
-    negative: 'Int'
+    id: 'String'
+    Content: 'String'
+    Negative: 'Int'
+    Positive: 'Int'
   }
 }
 

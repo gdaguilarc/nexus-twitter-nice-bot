@@ -1,0 +1,58 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "CreateField",
+      "model": "Tweet",
+      "field": "Content",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Tweet",
+      "field": "Positive",
+      "type": "Int",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Tweet",
+      "field": "Negative",
+      "type": "Int",
+      "arity": "Required"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Tweet",
+      "field": "tweet_content"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Tweet",
+      "field": "positive"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Tweet",
+      "field": "negative"
+    },
+    {
+      "tag": "UpdateField",
+      "model": "Tweet",
+      "field": "id",
+      "type": "String"
+    },
+    {
+      "tag": "DeleteDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Tweet",
+          "field": "id"
+        },
+        "directive": "default"
+      }
+    }
+  ]
+}

@@ -3,13 +3,17 @@
 
 
 type Query {
+  countTweets: Int
+  countTweetsAggresive: Int
+  countTweetsByWord(word: String!): Int
+  countTweetsNotAggresive: Int
   getAllTweet: [Tweet]!
-  getTweet(id: Int!): Tweet
+  getTweet(id: String!): Tweet
 }
 
 type Tweet {
-  id: Int!
-  negative: Int!
-  positive: Int!
-  tweet_content: String!
+  Content: String!
+  id: String!
+  Negative: Int!
+  Positive: Int!
 }
